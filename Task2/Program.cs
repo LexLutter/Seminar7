@@ -1,4 +1,4 @@
-﻿int[,] GetMatrix(int rows, int cols, int minValue, int maxValue)
+﻿int[,] GetMatrix(int rows, int cols, int minValue, int maxValue) // Заполняем двумерный массив
 {
     int[,] matrix = new int[rows, cols];
     for (int i = 0; i < matrix.GetLength(0); i++) // либо i < rows
@@ -11,7 +11,7 @@
     return matrix; // вернули заполненную таблицу
 }
 
-void PrintMatrix(int[,] matr)
+void PrintMatrix(int[,] matr) // Выводим в консоль массив
 {
     for (int i = 0; i < matr.GetLength(0); i++) // либо i < rows
     {
@@ -23,19 +23,26 @@ void PrintMatrix(int[,] matr)
     }
 }
 
-int countRows(int[,] matr)
+int CountRows(int[,] matr) // Считаем количество строк и возвращаем число
 {
     int rows = matr.GetLength(0);
     return rows;
 }
 
-int countCols(int[,] matr)
+int CountCols(int[,] matr) // Считаем количество столбцов и возвращаем число
 {
     int cols = matr.GetLength(1);
     return cols;
 }
 
+void FindElementMatrix(int rows, int cols, int[,] matr) // Проверяем есть ли в таблице заданный элемент, если есть, то выводим его
+{
+    if (rows > 0 && rows <= CountRows(matr) && cols > 0 && cols <= CountRows(matr)){
+        Console.Write("Заданный элемент присутствует в таблице и его значение равно: " + matr[rows-1, cols-1]);
+    }
+    else Console.Write("Заданный элемент отсутствует в таблице");
+}
 
 int[,] resultMatrix = GetMatrix(3, 4, 0, 10);
 PrintMatrix(resultMatrix);
-Console.Write(countCols(resultMatrix));
+FindElementMatrix(0, 3, resultMatrix);

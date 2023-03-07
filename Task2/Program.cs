@@ -37,7 +37,7 @@ int CountCols(int[,] matr) // Считаем количество столбцо
 
 void FindElementMatrix(int rows, int cols, int[,] matr) // Проверяем есть ли в таблице заданный элемент, если есть, то выводим его
 {
-    if (rows > 0 && rows <= CountRows(matr) && cols > 0 && cols <= CountRows(matr)){
+    if (rows > 0 && rows <= CountRows(matr) && cols > 0 && cols <= CountCols(matr)){
         Console.Write("Заданный элемент присутствует в таблице и его значение равно: " + matr[rows-1, cols-1]);
     }
     else Console.Write("Заданный элемент отсутствует в таблице");
